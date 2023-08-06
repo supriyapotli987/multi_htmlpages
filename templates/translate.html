@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>css tranlate</title>
+    <style>
+        div
+        {
+            box-shadow: 0 0 10px black;
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            overflow:hidden ;
+            cursor: pointer;
+        }
+        div>img
+        {
+            width: inherit;
+            height: inherit;
+            transition:all 1s liner 0s;
+
+        }
+        div:hover>img
+        {
+            transform: translatey(-100px);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="D:\WEB TECH\SRC\ASSECTS\PUPPY.jpeg" >
+        <div id="price"></div>
+        <ol>
+            <li>photo</li>
+            <li>girl</li>
+        </ol>
+
+    </div>
+</body>
+</html>

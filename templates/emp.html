@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+	<head>
+		<title>JS Emp Table</title>
+		<link rel="stylesheet" href="../MDB/css/Bootstrap.css">
+		<link rel="stylesheet" href="../MDB/css/MDB.css">
+		<style>
+			.container-fluid
+			{
+				width:50vw !important;
+			}
+			
+			
+		</style>
+	</head>
+			
+	<body>
+		<div class="container-fluid">
+			<h1 class="text-primary">Employee Details</h1>
+			<table class=" table table-sm table-bordered table-primary">
+				<thead class="thead-dark">
+					<tr class="text-center">
+						<th class="mycol">ID</th>
+						<th>Name</th>
+						<th>Salary</th>
+						<th>Gender</th>
+					</tr>
+				</thead>
+				<tbody id="display" class="text-center">
+					
+				</tbody>
+			</table>
+		</div>
+		<div class="container-fluid">
+			<button id="all" class="btn-primary align-center">All records</button>
+			<button id="male" class="btn-primary">Male</button>
+			<button id="female" class="btn-primary">Female</button>
+		</div>
+
+		<script>
+			let Employees=[{E_id:"101",E_name:"supriya",E_sal:'20000',E_gen:"feMale"},
+			{E_id:"102",E_name:"raj",E_sal:'30000',E_gen:"Male"}, 
+			{E_id:"103",E_name:"priya",E_sal:'40000',E_gen:"feMale"}, 
+			{E_id:"104",E_name:"ankit",E_sal:'50000',E_gen:"Male"}, 
+			{E_id:"105",E_name:"pavani",E_sal:'60000',E_gen:"feMale"}, 
+			{E_id:"106",E_name:"Anu",E_sal:'30000',E_gen:"Female"},
+			{E_id:"107",E_name:"sreejanani",E_sal:'15000',E_gen:"Female"},
+			{E_id:"108",E_name:"sreenidhi",E_sal:'25000',E_gen:"Female"},
+			{E_id:"109",E_name:"sree",E_sal:'28000',E_gen:"Female"},
+			{E_id:"110",E_name:"riya",E_sal:'35000',E_gen:"Female"}];
+			
+			let str='<tbody>';
+			for(let emp of Employees)
+			{
+				str=str+`<tr><td>${emp['E_id']}</td><td>${emp['E_name']}</td><td>${emp['E_sal']}</td><td>${emp['E_gen']}</td></tr>`
+				
+			}
+
+			str+='</tbody>'
+			let bodyTag=document.querySelector("#display");
+			bodyTag.innerHTML=str;
+			
+			let allBtn=document.querySelector("#all");
+			let maleBtn=document.querySelector("#male");
+			let femBtn=document.querySelector("#female");
+			
+			allBtn.addEventListener("click",function()
+			{
+				localStorage.setItem=("val",str);
+				bodyTag.innerHTML=str;
+			});
+
+			maleBtn.addEventListener("click",function()
+			{
+				let strMale='<tbody>';
+				for(let emp of Employees)
+				{
+					if(emp['E_gen']=="Male")
+					{
+					strMale=strMale+`<tr><td>${emp['E_id']}</td><td>${emp['E_name']}</td><td>${emp['E_sal']}</td>
+						<td>${emp['E_gen']}</td></tr>`;
+					}
+				}
+					strMale+='</tbody>';
+					bodyTag.innerHTML=strMale;
+			});
+
+			femBtn.addEventListener("click",function()
+			{
+				let strFemale='<tbody>';
+				for(let emp of Employees)
+				{
+					if(emp['E_gen']=="Female")
+					{
+					strFemale=strFemale+`<tr><td>${emp['E_id']}</td><td>${emp['E_name']}</td><td>${emp['E_sal']}</td>
+						<td>${emp['E_gen']}</td></tr>`;
+					}
+				}
+					strFemale+='</tbody>';
+					bodyTag.innerHTML=strFemale;
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@3.6.0/css/mdb.min.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Calculator</h1>
+    <div class="row-4">
+      <div class="col-md-4">
+        <input type="number" id="num1" class="form-control" placeholder="Enter number 1" />
+      </div>
+      <br>
+      <div class="col-md-4">
+        <input type="number" id="num2" class="form-control" placeholder="Enter number 2" />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-2">
+        <button class="btn btn-primary" onclick="add()">+</button>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-secondary" onclick="subtract()">-</button>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-success" onclick="multiply()">*</button>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-danger" onclick="divide()">/</button>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Result:</h5>
+        <input type="text" id="result" class="form-control" disabled />
+      </div>
+    </div>
+  </div>
+  <script>
+    function add() {
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+      var result = num1 + num2;
+      document.getElementById('result').value = result;
+    }
+
+    function subtract() {
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+      var result = num1 - num2;
+      document.getElementById('result').value = result;
+    }
+
+    function multiply() {
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+      var result = num1 * num2;
+      document.getElementById('result').value = result;
+    }
+
+    function divide() {
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+      if (num2 === 0) {
+        alert("Cannot divide by zero");
+        return;
+      }
+      var result = num1 / num2;
+      document.getElementById('result').value = result;
+    }
+  </script>
+</body>
+</html>
